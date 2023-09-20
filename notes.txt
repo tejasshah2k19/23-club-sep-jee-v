@@ -1,0 +1,102 @@
+how to create adv java - jee project ?
+file -> new -> dynamic webproject [ other -> type ] 
+
+
+eclipse -> 
+	how to add server in eclipse ? 
+	file -> new -> server [ server option is not visible -> other  -> type -> server ] 
+					apache -> tomcat 8.5  -> browse -> [ installation directory ] -> finish 
+					
+					
+website-> html -> css js audio video image ==> browser 
+							WebContent 
+							webapp 
+							
+src->main->webapp 
+WebContent 
+
+
+
+configuration ->
+		web.xml -> deployment descriptor 
+		
+		webcontent / WEB-INF / web.xml 
+		webapp     / WEB-INF / web.xml 
+		
+-------------------------------------------------------------------------------------------
+HTTP -> 
+
+Signup.html 
+Login.html 
+
+
+
+
+Signup.html -> input -> XXX XXX XX submit ---> {request}  server
+server -> XXX process -> response 
+
+
+client -> request 
+server -> response 
+
+2 tier application 
+
+
+client 
+server/db
+
+
+client 
+server
+dbserver 
+
+
+server server server 
+dbserver dbserver dbserver 
+
+
+--------------------------------------------------
+servlet -->  class -> HttpServlet 
+							request , response 
+							
+class Signup extends HttpServlet {
+
+	protected void service(HttpServletRequest request,HttpServletResponse response){
+	
+	}
+
+}
+
+1) class extends HttpServlet
+2) override -> service 
+3) server mapping - configuration
+
+
+all java code -> src/main/java 
+				 src/				
+
+
+how to link servlet-api.jar -> 
+
+		project -> right click ->properties -> javabuildpath -> lib -> add external jar -> browse -> tomcat/lib/servlet-api.jar -> open 
+				  click on order and export => select all => apply and close 
+				   
+		
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
