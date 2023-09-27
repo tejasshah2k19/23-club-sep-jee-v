@@ -82,7 +82,10 @@ how to link servlet-api.jar ->
 				  click on order and export => select all => apply and close 
 				   
 		
+client -> request 
+server -> response 
 
+Signup->input->submit->request{data} 
 
  
 
