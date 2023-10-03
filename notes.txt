@@ -88,6 +88,31 @@ server -> response
 Signup->input->submit->request{data} 
 
  
+---------------------------
+Add.html
+	no1. 
+	no2. 
+			submit 
+			
+			server -> request -> no1 no2 -> print ans -> console / browser 
+			
+			1) Add.html  = view 
+			2) AddServet = logic
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
