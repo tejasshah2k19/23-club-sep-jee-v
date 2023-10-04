@@ -98,9 +98,27 @@ Add.html
 			
 			1) Add.html  = view 
 			2) AddServet = logic
+		
++---------------------------------------
+
+jsp -> java server pages / java servlet pages 
+
+html + java 
 		 
+	<%
+		int a;
+		a = 10;
+	%>
+	<%=a %>
+	
+	1) scriptlet 
+	2) expression 
+	3) declaration 
+--------------------------------------------
 
-
+how to send data from servlet to jsp? 
+request scope is used 
+		request.setAttribute("","");
 
 
 

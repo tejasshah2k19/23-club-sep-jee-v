@@ -44,7 +44,7 @@ public class SignupServlet extends HttpServlet {
 			// goback
 			System.out.println("ERROR");
 			RequestDispatcher rd = request.getRequestDispatcher("Signup.html");
-			rd.forward(request, response);
+			rd.forward(request, response); 
 		} else {
 			System.out.println("SUCCESS");
 			RequestDispatcher rd = request.getRequestDispatcher("Login.html");
