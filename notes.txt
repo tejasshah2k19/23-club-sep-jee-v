@@ -120,7 +120,12 @@ how to send data from servlet to jsp?
 request scope is used 
 		request.setAttribute("","");
 
-
+------------------------------------------------
+type1 -> JDBC-ODBC -> odbc ->  JDBC -> ODBC  
+type2 -> JDBC -> native
+type3 -> class -> pure java  
+type4 -> class registration -> driver load 
+---------------------------------------------
 
 
 

@@ -15,6 +15,20 @@ public class RegistrationServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//data read 
+		//validation 
+		//insert data -> database 
+		
+		//java ->  mysql 
+		//
+		
+		
+		//jdbc 
+		//0 => mysql -> jar -> driver class -> mysql-connector.jar 
+		//1
+		//2
+		//3 
+	
 		boolean isError = false;
 
 		String firstName = request.getParameter("firstName");
