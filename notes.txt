@@ -127,6 +127,18 @@ type3 -> class -> pure java
 type4 -> class registration -> driver load 
 ---------------------------------------------
 
+MVC model view controller 
+
+
+logic -> controller 
+data ->  model -> dao | bean 
+ui   ->  view 
+
+
+
+dao -> database query -> db 
+bean -> data- temp - inMemory - 
+
 
 
 

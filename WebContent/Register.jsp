@@ -14,9 +14,9 @@
 		%>
 
 	<form action="RegistrationServlet" method="post"> <!-- get {data url }  post { encryption } {hidden} -->
-		FirstName : <input type="text" name="firstName"/><%=firstNameError==null?"":firstNameError %> <br><br>  
+		FirstName : <input type="text" name="firstName"  value="${userBean.firstName}"/><%=firstNameError==null?"":firstNameError %> <br><br>  
 		
-		Email :  <input type="text" name="email" /><%=emailError==null?"":emailError %> <br><br> 
+		Email :  <input type="text" name="email" value="${userBean.email}" /><%=emailError==null?"":emailError %> <br><br> 
 		
 		Password :  <input type="text" name="password" /><%=passwordError==null?"":passwordError %> <br><br> 
 

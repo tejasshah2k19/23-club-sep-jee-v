@@ -1,8 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.util.DbConnection;
+import com.bean.UserBean;
+import com.dao.UserDao;
 
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
@@ -38,22 +37,34 @@ public class RegistrationServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
+		UserBean userBean = new UserBean();
+
 		if (firstName == null || firstName.trim().length() == 0) {
 			isError = true;
 			request.setAttribute("firstNameError", "Please Enter FirstName");
+		} else {
+			userBean.setFirstName(firstName);
+
 		}
 		if (email == null || email.trim().length() == 0) {
 			isError = true;
 			request.setAttribute("emailError", "Please Enter Email");
+		} else {
+			userBean.setEmail(email);
+
 		}
 		if (password == null || password.trim().length() == 0) {
 			isError = true;
 			request.setAttribute("passwordError", "Please Enter Password");
+		} else {
+			userBean.setPassword(password);
+
 		}
 
 		// RequestDispatcher -> is used to navivate from x to y page
 		if (isError) {
 			// Register.jsp
+			request.setAttribute("userBean", userBean);
 			RequestDispatcher rd = request.getRequestDispatcher("Register.jsp");
 			rd.forward(request, response);
 		} else {
@@ -61,28 +72,9 @@ public class RegistrationServlet extends HttpServlet {
 			// validation pass
 			// db insert
 
-			try {
-				// open connection
-				Connection con = DbConnection.openConnection();
-				// query -> run
-				// Statement -> sql
-				// PreparedStatement -> sql
-				// CallableStatement -> plsql
+			UserDao userDao = new UserDao();
+			userDao.addUser(userBean);
 
-				PreparedStatement pstmt = con
-						.prepareStatement("insert into users (firstName,email,password) values (?,?,?)");
-				pstmt.setString(1, firstName);
-				pstmt.setString(2, email);
-				pstmt.setString(3, password);
-
-				// run
-				int row = pstmt.executeUpdate(); // insert update delete
-				if(row != 0 ) {
-					System.out.println("record inserted => "+row);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 		}
