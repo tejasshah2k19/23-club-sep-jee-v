@@ -71,4 +71,20 @@ public class UserDao {
 
 		return users;
 	}
+	
+	public void deleteUser(int userId) {
+		try {
+			Connection con = DbConnection.openConnection();
+			PreparedStatement pstmt = con
+					.prepareStatement("delete from users where userId = ? ");
+			pstmt.setInt(1, userId);
+			int row = pstmt.executeUpdate(); // insert update delete
+			if (row != 0) {
+				System.out.println("record deleted => " + row);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

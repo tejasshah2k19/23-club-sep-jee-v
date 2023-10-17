@@ -7,5 +7,6 @@
 </head>
 <body>
 <h2>Home</h2>
+<a href="ListUserServlet">List Users</a>
 </body>
 </html>
