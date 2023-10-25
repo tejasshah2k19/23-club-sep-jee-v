@@ -142,12 +142,28 @@ bean -> data- temp - inMemory -
 
 
 
+alter table users add column deleted tinyint; 
+
+UserDao -> addUSer -> set deleted 0 
+
+getAllUsers -> select * from users where deleted = 0 
 
 
+soft delete --> 
 
+Search.jsp --->
+	[ ram ]  [ ra ] -> list all users who's firstname starts with ra 
+		[submit] 
+		
+Search.jsp 
 
-
-
+	ram 
+	ravana 
+	ramanuj 
+	XXX => ROYAL X 
+	
+	 
+	
 
 
 

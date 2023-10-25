@@ -25,7 +25,7 @@ public class UserDao {
 			// CallableStatement -> plsql
 
 			PreparedStatement pstmt = con
-					.prepareStatement("insert into users (firstName,email,password) values (?,?,?)");
+					.prepareStatement("insert into users (firstName,email,password,deleted) values (?,?,?,0)");
 			pstmt.setString(1, userBean.getFirstName());
 			pstmt.setString(2, userBean.getEmail());
 			pstmt.setString(3, userBean.getPassword());
@@ -46,7 +46,7 @@ public class UserDao {
 		try {
 
 			Connection con = DbConnection.openConnection();
-			PreparedStatement pstmt = con.prepareStatement("select * from users");
+			PreparedStatement pstmt = con.prepareStatement("select * from users where deleted = 0 ");
 			ResultSet rs = pstmt.executeQuery();// read only
 			// rs => 10 record -> 10row -> firstName userId email password
 
@@ -86,5 +86,17 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void softDeleteUser(int userId) {
+		try {
+			Connection con  = DbConnection.openConnection(); 
+			PreparedStatement pstmt  = con.prepareStatement("update users set deleted = 1 where userId = ?");
+			pstmt.setInt(1, userId);
+			pstmt.executeUpdate();
+		}catch(Exception e  ) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 }
